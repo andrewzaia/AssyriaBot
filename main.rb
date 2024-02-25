@@ -170,4 +170,34 @@ bot.message(start_with: '!bible') do |event|
   end
 end
 
+bot.message(start_with: '!assyria') do |event|
+  # Delete the user's input message
+  event.message.delete
+
+  # Create a new embed object
+  embed = Discordrb::Webhooks::Embed.new
+
+  # Set the title and description of the embed
+  embed.title = 'Assyrian People'
+  embed.description = "Assyrians are an indigenous ethnic group native to Mesopotamia, a geographical region in West Asia. Modern Assyrians descend from Ancient Mesopotamians such as ancient Assyrians and Babylonians, originating from the ancient indigenous Mesopotamians of Akkad and Sumer, who first developed the civilisation in northern Mesopotamia (modern-day Iraq and Syria) that would become Assyria in 2600 BCE. Modern Assyrians may culturally self-identify as Syriacs, Chaldeans, or Arameans for religious, geographic, and tribal identification."
+
+  # Set the image URL
+  embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_the_Assyrians.jpg')
+
+  # Send the embed post to the channel
+  event.channel.send_embed('', embed)
+end
+
+# Define a command to display the bot's presence
+bot.command(:presence) do |event|
+  # Get the number of servers the bot is in
+  servers_count = bot.servers.count
+
+  # Set the bot's presence
+  bot.update_status("online", "with #{servers_count} servers")
+
+  # Send a message to the channel
+  event.respond("Updated presence to show how many servers the bot is in: #{servers_count}")
+end
+
 bot.run
