@@ -188,16 +188,4 @@ bot.message(start_with: '!assyria') do |event|
   event.channel.send_embed('', embed)
 end
 
-# Define a command to display the bot's presence
-bot.command(:presence) do |event|
-  # Get the number of servers the bot is in
-  servers_count = bot.servers.count
-
-  # Set the bot's presence
-  bot.update_status("online", "with #{servers_count} servers")
-
-  # Send a message to the channel
-  event.respond("Updated presence to show how many servers the bot is in: #{servers_count}")
-end
-
 bot.run

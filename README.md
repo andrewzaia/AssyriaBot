@@ -1,10 +1,13 @@
-# super-duper-chainsaw aka AssyriaBot
+# AssyriaBot
 
-## AssyriaBot
-
-AssyriaBot is a Discord bot that can fetch Bible verses based on user input. It provides a simple interface to look up Bible verses by book, chapter, and verse.
+AssyriaBot is a discord bot that can fetch Bible verses based on user input. It provides a simple interface to look up Bible verses by book, chapter, and verse.
 
 It also provides information about Assyria and Assyrians. This was created for Assyrian based discord communities to bring recognition to the Assyrian people, their culture and their rich ancient history.
+
+This git includes two variants, the Python version or a Ruby version - they are not the same.
+
+* The **Python** version uses the `https://bible-api.com/` website and API calls to get the information.
+* The **Ruby** version uses an offline XML file called `eng-web.usfx.xml` (included). This version is currently limited to 2 different variations of calls (more information below).
 
 This git also includes Docker image for ease of running.
 
@@ -15,11 +18,11 @@ This git also includes Docker image for ease of running.
 2. Set up a Discord bot and obtain its token. You can find instructions on how to do this here: [Creating a Bot Account](https://discord.com/developers).
 
 3. Install dependencies:
-   - For Python, you can use pip:
+   * For Python, you can use pip:
      ```
      pip install -r requirements.txt
      ```
-   - For Ruby, you can use bundler:
+   * For Ruby, you can use bundler:
      ```
      bundle install
      ```
@@ -37,36 +40,39 @@ CLIENT_ID=
 
 ### Python
 
-- Run the Python script:
+* Run the Python script:
 
 ```
 python main.py
 ```
 
-- The bot will listen for commands prefixed with `!`. For example:
+* The bot will listen for commands prefixed with `!`. For example:
 
-```
-!bible John 3:16
-```
+  * Single Verses: `!bible john 3:16`
+  * Entire Chapter: `!bible john 3`
+  * Abbreviated book name: `!bible jn 3:16`
+  * Verse range: `!bible romans 12:1-2`
+  * Multiple ranges: `!bible romans 12:1-2,5-7,9,13:1-9&10`
+  * Random verse: `!bible random`
 
-
-- The bot will respond with the requested Bible verse.
+* The bot will respond with the requested Bible verse.
 
 ### Ruby
 
-- Run the Ruby script:
+* Run the Ruby script:
 
 ```
 ruby main.rb
 ```
 
-- The bot will listen for commands prefixed with `!`. For example:
+* The bot will listen for commands prefixed with `!`. For example:
 
-```
-!bible John 3:16
-```
+  * Single Verses: `!bible John 3:16`
+  * Entire Chapter: `!bible John 3`
 
-- The bot will respond with the requested Bible verse.
+**Note: Capitalisation in the Ruby variant is important.**
+
+* The bot will respond with the requested Bible verse.
 
 ### Docker
 
@@ -127,6 +133,14 @@ To build the Docker image and run the container:
 docker build -t AssyriaBotRuby -f Dockerfile\(Python\) .
 docker run -it AssyriaBotRuby
 ```
+
+## Assyria
+
+AssyriaBot also includes the `!assyria` command that provides some information about Assyrians and the Assyrian flag in a neat embed.
+
+![!assyria command screenshot](images/assyria.png)
+
+More Assyrian based commands to come!
 
 ## Contributing
 
