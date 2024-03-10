@@ -2,6 +2,11 @@
 
 AssyriaBot is an exclusive bot for the [r/Assyria](https://discord.gg/r-assyria-247923889697587200) Discord community. It provides various features aimed at enhancing the community's experience and promoting Assyrian culture and heritage.
 
+<figure>
+    <img src="images/flag.png" alt="Assyrian Flag" width="500" height="300">
+    <figcaption>Assyrian Flag</figcaption>
+</figure>
+
 ## AlapBet Quiz
 
 AssyriaBot implements an interactive AlapBet quiz game using Discord's API. The AlapBet quiz aims to educate users about Assyrian characters and their descriptions. Users can initiate the quiz in their own channel, where they will encounter multiple-choice questions related to various characters from Assyrian history and culture.
