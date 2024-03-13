@@ -118,6 +118,7 @@ async def quiz(ctx: nextcord.Interaction):
             await ctx.send('Starting up now! Scroll to the bottom of channels (on the left - under "lessons") to find your room.', ephemeral=True, delete_after=30)
 
             await interaction.response.send_message("You selected Level 1. Starting the quiz...", ephemeral=True, delete_after=30)
+            
             guild = ctx.guild
             category = nextcord.utils.get(guild.categories, name='lessons')
             if not category:
