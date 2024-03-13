@@ -4,6 +4,8 @@ services:
   bot:
     build: .
     restart: always
+    networks:
+      - assyria_network
   mysql:
     image: mysql:latest
     container_name: mysql_container
@@ -17,6 +19,8 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - assyria_network
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -32,6 +36,12 @@ services:
       - "8080:80"
     depends_on:
       - mysql
+    networks:
+      - assyria_network
+
+networks:
+  assyria_network:
+    driver: bridge
 
 volumes:
   db_data:
